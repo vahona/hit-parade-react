@@ -3,8 +3,9 @@
         "id": 1,
         "style": "salegy",
         "title": "Misy manaramaso",
-        "singer": "Wawa",
-        "Lyrics": "I heard that you're settled down"
+        "Artist": "Wawa",
+        "Lyrics": "I heard that you're settled down",
+        "Price": "100"
 
 
     },
@@ -13,8 +14,9 @@
         "id": 2,
         "style": "slow",
         "title": "I like you",
-        "singer": "Romeo",
-        "Lyrics": "mx......zkejr;ejt;;;;;;;;;;;;;;;;;;;;;;;;"
+        "Artist": "Romeo",
+        "Lyrics": "mx......zkejr;ejt;;;;;;;;;;;;;;;;;;;;;;;;",
+        "Price": "100"
     },
 
 
@@ -22,8 +24,9 @@
         "id": 3,
         "style": "Reggae",
         "title": "prisonier",
-        "singer": "Luck dub",
-        "Lyrics": "ksafmdkjfdkgjdfgkd"
+        "Artist": "Luck dub",
+        "Lyrics": "ksafmdkjfdkgjdfgkd",
+        "Price": "100"
     },
 
 
@@ -31,8 +34,9 @@
         "id": 4,
         "style": "salegy",
         "title": "Misy manaramaso",
-        "singer": "Wawa",
-        "Lyrics": "I heard that you're settled down"
+        "Artist": "Wawa",
+        "Lyrics": "I heard that you're settled down",
+        "Price": "100"
     },
 
 
@@ -40,7 +44,8 @@
         "id": 5,
         "style": "Rock",
         "title": "like you",
-        "singer": "Ambondrona",
-        "Lyrics": "sdfjkdjfdkjgkjdfkjgkdjskgjdfgk"
+        "Artist": "Ambondrona",
+        "Lyrics": "sdfjkdjfdkjgkjdfkjgkdjskgjdfgk",
+        "Price": "100"
     }
 ]
