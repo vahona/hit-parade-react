@@ -1,20 +1,38 @@
 .list {
     display: flex;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43.88px;
+    
+
 
 }
+
 .link {
     margin: 1rem;
+    list-style: none;
+    color: #272343;
 }
 
 .song {
     padding: 2rem;
-    background-color: azure;
+    background-color: #272343;
     margin: 2rem;
     display: flex;
+    color: white;
 }
 
 .each {
     margin: 1rem;
+}
+
+.form_type {
+    margin: 1rem;
+}
+
+.link-list {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

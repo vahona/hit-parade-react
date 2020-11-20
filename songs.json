@@ -5,7 +5,8 @@
         "title": "Misy manaramaso",
         "Artist": "Wawa",
         "Lyrics": "I heard that you're settled down",
-        "Price": "100"
+        "Price": "100",
+        "favorite": false
 
 
     },
@@ -16,7 +17,8 @@
         "title": "I like you",
         "Artist": "Romeo",
         "Lyrics": "mx......zkejr;ejt;;;;;;;;;;;;;;;;;;;;;;;;",
-        "Price": "100"
+        "Price": "100",
+        "favorite": false
     },
 
 
@@ -26,7 +28,8 @@
         "title": "prisonier",
         "Artist": "Luck dub",
         "Lyrics": "ksafmdkjfdkgjdfgkd",
-        "Price": "100"
+        "Price": "100",
+        "favorite": false
     },
 
 
@@ -36,7 +39,8 @@
         "title": "Misy manaramaso",
         "Artist": "Wawa",
         "Lyrics": "I heard that you're settled down",
-        "Price": "100"
+        "Price": "100",
+        "favorite": false
     },
 
 
@@ -46,6 +50,16 @@
         "title": "like you",
         "Artist": "Ambondrona",
         "Lyrics": "sdfjkdjfdkjgkjdfkjgkdjskgjdfgk",
-        "Price": "100"
+        "Price": "100",
+        "favorite": false
+    },
+    {
+        "id": 6,
+        "style": "folk",
+        "title": "Jesusalem",
+        "Artist": "Master KG",
+        "Lyrics": "sdfjkdjfdkjgkjdfkjgkdjskgjdfgk",
+        "Price": "100",
+        "favorite": false
     }
 ]

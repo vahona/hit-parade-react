@@ -1,11 +1,12 @@
 
 import React from "react"
 import { Route, Switch } from "react-router-dom"
-import Add from './components/Add'
+import AddSong from './components/AddSong'
 import Card from './components/Card'
 import Popular from './components/Popular'
 import Style from './components/Style'
 import Header from './Header'
+import SongsList from './SongsList'
 
 
 function App() {
@@ -19,21 +20,11 @@ function App() {
                 </Route>
                 <Route path="/style">
                     <Style />
+                </Route>
+                <Route path="/AddSong">
+                    <AddSong />
                 </Route> 
             </Switch>
-            {/* <>
-                <Route path="/">
-                    <Popular />
-                </Route>
-                {/* <Route path="/">
-                    <Card />
-                </Route>
-                <Route path="/">
-                    <Add />
-                </Route>
-                <Route path="/">
-                    <Style />
-                </Route> */}
         /</div>
     )
 }
