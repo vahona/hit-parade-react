@@ -1,0 +1,18 @@
+.list {
+    display: flex;
+
+}
+.link {
+    margin: 1rem;
+}
+
+.song {
+    padding: 2rem;
+    background-color: azure;
+    margin: 2rem;
+    display: flex;
+}
+
+.each {
+    margin: 1rem;
+}

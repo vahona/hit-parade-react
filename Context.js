@@ -11,7 +11,7 @@ function ContextProvider(props) {
 
   return (
       <Context.Provider value={{song, setSong}}>
-          {props.Children}
+          {props.children}
       </Context.Provider>
   )
 }

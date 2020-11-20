@@ -32324,9 +32324,129 @@ function ContextProvider(props) {
       song,
       setSong
     }
-  }, props.Children);
+  }, props.children);
 }
-},{"react":"node_modules/react/index.js","./Songs.json":"Songs.json"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Songs.json":"Songs.json"}],"components/Add.js":[function(require,module,exports) {
+
+},{}],"components/Card.js":[function(require,module,exports) {
+
+},{}],"components/Popular.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function Popular(Songs) {
+  const {
+    song
+  } = (0, _react.useContext)(_Context.Context);
+  console.log(song);
+  return /*#__PURE__*/_react.default.createElement("div", null, song.map(songs => {
+    console.log(songs);
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: "song",
+      key: songs.id
+    }, /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, "Favorite"), /*#__PURE__*/_react.default.createElement("div", {
+      className: "each"
+    }, songs.Artist, console.log(songs.Artist)), /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, songs.title), /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, "up"), /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, "doun"), /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, "card"), /*#__PURE__*/_react.default.createElement("p", {
+      className: "each"
+    }, "more"));
+  }));
+}
+
+var _default = Popular;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"components/Style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("../Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function Style() {
+  const {
+    song
+  } = (0, _react.useContext)(_Context.Context);
+  console.log("mmm", song);
+  return /*#__PURE__*/_react.default.createElement("div", null, song.map(songs => {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      key: songs.id
+    }, songs.style);
+  }));
+}
+
+var _default = Style;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function Header() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", {
+    className: "list"
+  }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/Popular"
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    className: "link"
+  }, " Popular Songs")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/Style"
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    className: "link"
+  }, "Styles")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/Add"
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    className: "link"
+  }, " Add "), " "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/Card"
+  }, /*#__PURE__*/_react.default.createElement("li", {
+    className: "link"
+  }, "Cart"))));
+}
+
+var _default = Header;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32336,15 +32456,32 @@ exports.default = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
+var _Add = _interopRequireDefault(require("./components/Add"));
+
+var _Card = _interopRequireDefault(require("./components/Card"));
+
+var _Popular = _interopRequireDefault(require("./components/Popular"));
+
+var _Style = _interopRequireDefault(require("./components/Style"));
+
+var _Header = _interopRequireDefault(require("./Header"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hit parade"));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hit parade"), /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/"
+  }, /*#__PURE__*/_react.default.createElement(_Popular.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/style"
+  }, /*#__PURE__*/_react.default.createElement(_Style.default, null))), "/");
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/Add":"components/Add.js","./components/Card":"components/Card.js","./components/Popular":"components/Popular.js","./components/Style":"components/Style.js","./Header":"Header.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
