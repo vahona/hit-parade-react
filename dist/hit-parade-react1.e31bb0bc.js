@@ -32258,7 +32258,7 @@ if ("development" !== "production") {
 }
 },{"react-router":"node_modules/react-router/esm/react-router.js","@babel/runtime/helpers/esm/inheritsLoose":"node_modules/@babel/runtime/helpers/esm/inheritsLoose.js","react":"node_modules/react/index.js","history":"node_modules/history/esm/history.js","prop-types":"node_modules/prop-types/index.js","tiny-warning":"node_modules/tiny-warning/dist/tiny-warning.esm.js","@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js","tiny-invariant":"node_modules/tiny-invariant/dist/tiny-invariant.esm.js"}],"Songs.json":[function(require,module,exports) {
 module.exports = [{
-  "id": 1,
+  "id": "1",
   "style": "salegy",
   "title": "Misy manaramaso",
   "Artist": "Wawa",
@@ -32266,7 +32266,7 @@ module.exports = [{
   "Price": "100",
   "favorite": false
 }, {
-  "id": 2,
+  "id": "2",
   "style": "slow",
   "title": "I like you",
   "Artist": "Romeo",
@@ -32274,7 +32274,7 @@ module.exports = [{
   "Price": "100",
   "favorite": false
 }, {
-  "id": 3,
+  "id": "3",
   "style": "Reggae",
   "title": "prisonier",
   "Artist": "Luck dub",
@@ -32282,7 +32282,7 @@ module.exports = [{
   "Price": "100",
   "favorite": false
 }, {
-  "id": 4,
+  "id": "4",
   "style": "salegy",
   "title": "Misy manaramaso",
   "Artist": "Wawa",
@@ -32290,7 +32290,7 @@ module.exports = [{
   "Price": "100",
   "favorite": false
 }, {
-  "id": 5,
+  "id": "5",
   "style": "Rock",
   "title": "like you",
   "Artist": "Ambondrona",
@@ -32298,7 +32298,7 @@ module.exports = [{
   "Price": "100",
   "favorite": false
 }, {
-  "id": 6,
+  "id": "6",
   "style": "folk",
   "title": "Jesusalem",
   "Artist": "Master KG",
@@ -32331,7 +32331,7 @@ exports.Context = Context;
 
 function ContextProvider(props) {
   const [song, setSong] = (0, _react.useState)(_Songs.default);
-  console.log(song);
+  const [upper, setUpper] = (0, _react.useState)(0); // console.log(song);
 
   function favoriteSong(id) {
     const newSong = song.map(songs => {
@@ -32347,11 +32347,47 @@ function ContextProvider(props) {
     setSong(newSong);
   }
 
+  function upSong(idsong) {
+    const songup = song.map(upsong => {
+      if (upsong.id === idsong) {
+        return { ...upsong,
+          upper: upsong.upper + 1
+        };
+      }
+
+      ;
+      return upsong;
+    });
+    setSong(songup);
+  } // function stylemuctches(style) {
+  //   const stylesong = song.filter(styleson => styleson.style === style)
+  //   if(stylesong) {
+  //     return {
+  //       styleson: styleson.style
+  //     };
+  //   }
+  //   setSong(stylesong)
+  //   return styleson
+  // }
+  // function stylefilter(style) {
+  //   const whichstyle = song.map(styls => {
+  //     if(styls.id === style) {
+  //       return styls.style
+  //     };
+  //     return styls
+  //   })
+  //   setSong(whichstyle)
+  // }
+
+
   return /*#__PURE__*/_react.default.createElement(Context.Provider, {
     value: {
       song,
       setSong,
-      favoriteSong
+      favoriteSong,
+      upSong,
+      upper,
+      setUpper
     }
   }, props.children);
 }
@@ -32389,13 +32425,9 @@ function AddSong() {
     className: "form_type"
   }, /*#__PURE__*/_react.default.createElement("input", {
     placeholder: "Price"
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "form_type"
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    placeholder: "Price"
   })), /*#__PURE__*/_react.default.createElement("select", {
     name: "choice",
-    className: "form_type"
+    className: "form_type_select"
   }, /*#__PURE__*/_react.default.createElement("option", {
     value: "choices"
   }, "Choices"), /*#__PURE__*/_react.default.createElement("option", {
@@ -32416,8 +32448,11 @@ function AddSong() {
     rows: "5",
     cols: "33"
   })), /*#__PURE__*/_react.default.createElement("div", {
-    className: "form_type"
-  }, /*#__PURE__*/_react.default.createElement("button", null, "Add"))));
+    className: "form_type_button"
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    type: "button",
+    className: "button"
+  }, "Add"))));
 }
 
 var _default = AddSong;
@@ -32440,56 +32475,45 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function Popular(Songs) {
+function Popular() {
   const {
     song,
-    favoriteSong
-  } = (0, _react.useContext)(_Context.Context);
-  const [hovered, setHovered] = (0, _react.useState)(false);
-  console.log("khsjfha", hovered);
+    favoriteSong,
+    upSong,
+    upper
+  } = (0, _react.useContext)(_Context.Context); // const [upArrow, setUpArrow] = useState(0)
+  // const [downArrow, setdownArrow] = useState(0)
 
-  function favoriteIcone() {
-    if (!hovered) {
-      return /*#__PURE__*/_react.default.createElement("i", {
-        onClick: () => favoriteSong(song.id)
-      }, " ", /*#__PURE__*/_react.default.createElement("svg", {
-        svg: true,
-        xmlns: "http://www.w3.org/2000/svg",
-        fill: "yellow",
-        height: "24",
-        viewBox: "0 0 24 24",
-        width: "24"
-      }, /*#__PURE__*/_react.default.createElement("path", {
-        d: "M0 0h24v24H0z",
-        fill: "none"
-      }), /*#__PURE__*/_react.default.createElement("path", {
-        d: "M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
-      })));
-    } else if (hovered) {
-      return /*#__PURE__*/_react.default.createElement("i", {
-        onClick: () => favoriteSong(song.id)
-      }, /*#__PURE__*/_react.default.createElement("svg", {
-        xmlns: "http://www.w3.org/2000/svg",
-        fill: "yellow",
-        height: "24",
-        viewBox: "0 0 24 24",
-        width: "24"
-      }, /*#__PURE__*/_react.default.createElement("path", {
-        d: "M0 0h24v24H0z",
-        fill: "none"
-      }), /*#__PURE__*/_react.default.createElement("path", {
-        d: "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-      })));
-    }
-  }
+  const fullheart = /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "yellow",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+  }));
 
-  function hover() {
-    setHovered(true);
-  }
+  const heart = /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "yellow",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"
+  })); // function upRow(id, song) {
+  //     const upper = song.find(son => son.id === id)
+  //     setUpArrow(upper)
+  //     console.log(id);
+  // } 
 
-  function nothover() {
-    setHovered(false);
-  }
 
   const arrowup = /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
@@ -32519,7 +32543,7 @@ function Popular(Songs) {
 
   const cartempty = /*#__PURE__*/_react.default.createElement("svg", {
     xmlns: "http://www.w3.org/2000/svg",
-    fill: "white",
+    fill: "yellow",
     height: "24",
     viewBox: "0 0 24 24",
     width: "24"
@@ -32530,29 +32554,40 @@ function Popular(Songs) {
     d: "M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
   }));
 
-  console.log(song);
+  const emptycar = /*#__PURE__*/_react.default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "yellow",
+    height: "24",
+    viewBox: "0 0 24 24",
+    width: "24"
+  }, /*#__PURE__*/_react.default.createElement("path", {
+    d: "M0 0h24v24H0zm18.31 6l-2.76 5z",
+    fill: "none"
+  }), /*#__PURE__*/_react.default.createElement("path", {
+    d: "M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z"
+  }));
+
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "songs_list"
   }, song.map(songs => {
-    console.log(songs);
     return /*#__PURE__*/_react.default.createElement("div", {
       className: "song",
       key: songs.id
     }, /*#__PURE__*/_react.default.createElement("i", {
       className: "each",
-      onMouseLeave: nothover,
-      onMouseEnter: hover
-    }, favoriteIcone()), /*#__PURE__*/_react.default.createElement("div", {
+      onClick: () => favoriteSong(songs.id)
+    }, songs.favorite ? fullheart : heart, " ", console.log(songs.favorite)), /*#__PURE__*/_react.default.createElement("div", {
       className: "each"
-    }, songs.Artist, console.log(songs.Artist)), /*#__PURE__*/_react.default.createElement("p", {
+    }, songs.Artist), /*#__PURE__*/_react.default.createElement("p", {
       className: "each"
-    }, songs.title), /*#__PURE__*/_react.default.createElement("i", {
+    }, songs.title), /*#__PURE__*/_react.default.createElement("span", null), /*#__PURE__*/_react.default.createElement("i", {
       className: "each"
-    }, arrowup), /*#__PURE__*/_react.default.createElement("i", {
+    }, arrowup), /*#__PURE__*/_react.default.createElement("span", null, upper, console.log("sd", upper)), /*#__PURE__*/_react.default.createElement("i", {
+      onClick: () => upSong(songs.id),
       className: "each"
     }, dowward), /*#__PURE__*/_react.default.createElement("p", {
       className: "each"
-    }, cartempty), /*#__PURE__*/_react.default.createElement("p", {
+    }, emptycar), /*#__PURE__*/_react.default.createElement("p", {
       className: "each"
     }));
   }));
@@ -32570,6 +32605,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _Context = require("../Context");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -32580,17 +32617,24 @@ function Style() {
   const {
     song
   } = (0, _react.useContext)(_Context.Context);
-  console.log("mmm", song);
-  return /*#__PURE__*/_react.default.createElement("div", null, song.map(songs => {
+  const songStyle = song.map(songs => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: songs.id
-    }, songs.style);
-  }));
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      className: "style_link",
+      to: "/Filteredstyle"
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      key: songs.id
+    }, "\uD83C\uDFA7 ", songs.style)));
+  });
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "style"
+  }, songStyle);
 }
 
 var _default = Style;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../Context":"Context.js"}],"Header.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","../Context":"Context.js"}],"Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32614,22 +32658,22 @@ function Header() {
     className: "link-list"
   }, /*#__PURE__*/_react.default.createElement("li", {
     className: "link"
-  }, " Popular Songs")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, " \uD83D\uDD25 Popular Songs")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/Style",
     className: "link-list"
   }, /*#__PURE__*/_react.default.createElement("li", {
     className: "link"
-  }, "Styles")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "\uD83D\uDC97 Styles")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/AddSong",
     className: "link-list"
   }, /*#__PURE__*/_react.default.createElement("li", {
     className: "link"
-  }, " Add "), " "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, " \uD83D\uDE32 Add "), " "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/Card",
     className: "link-list"
   }, /*#__PURE__*/_react.default.createElement("li", {
     className: "link"
-  }, "Cart"))));
+  }, "\uD83D\uDED2 Cart"))));
 }
 
 var _default = Header;
@@ -32667,7 +32711,33 @@ function SongsList() {
 
 var _default = SongsList;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Context":"Context.js","./components/Popular":"components/Popular.js"}],"App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Context":"Context.js","./components/Popular":"components/Popular.js"}],"Filteredstyle.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Context = require("./Context");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function Filteredstyle() {
+  const {
+    song,
+    stylefilter
+  } = (0, _react.useContext)(_Context.Context);
+  return /*#__PURE__*/_react.default.createElement("div", null, "mmmm");
+}
+
+var _default = Filteredstyle;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./Context":"Context.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -32691,6 +32761,8 @@ var _Header = _interopRequireDefault(require("./Header"));
 
 var _SongsList = _interopRequireDefault(require("./SongsList"));
 
+var _Filteredstyle = _interopRequireDefault(require("./Filteredstyle"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -32701,12 +32773,14 @@ function App() {
     path: "/style"
   }, /*#__PURE__*/_react.default.createElement(_Style.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/AddSong"
-  }, /*#__PURE__*/_react.default.createElement(_AddSong.default, null))), "/");
+  }, /*#__PURE__*/_react.default.createElement(_AddSong.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/Filteredstyle"
+  }, /*#__PURE__*/_react.default.createElement(_Filteredstyle.default, null))));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/AddSong":"components/AddSong.js","./components/Card":"components/Card.js","./components/Popular":"components/Popular.js","./components/Style":"components/Style.js","./Header":"Header.js","./SongsList":"SongsList.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/AddSong":"components/AddSong.js","./components/Card":"components/Card.js","./components/Popular":"components/Popular.js","./components/Style":"components/Style.js","./Header":"Header.js","./SongsList":"SongsList.js","./Filteredstyle":"Filteredstyle.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -32750,7 +32824,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54816" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49961" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

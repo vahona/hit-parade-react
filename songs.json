@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "1",
         "style": "salegy",
         "title": "Misy manaramaso",
         "Artist": "Wawa",
@@ -12,7 +12,7 @@
     },
 
     {
-        "id": 2,
+        "id": "2",
         "style": "slow",
         "title": "I like you",
         "Artist": "Romeo",
@@ -23,7 +23,7 @@
 
 
     {
-        "id": 3,
+        "id": "3",
         "style": "Reggae",
         "title": "prisonier",
         "Artist": "Luck dub",
@@ -34,7 +34,7 @@
 
 
     {
-        "id": 4,
+        "id": "4",
         "style": "salegy",
         "title": "Misy manaramaso",
         "Artist": "Wawa",
@@ -45,7 +45,7 @@
 
 
     {
-        "id": 5,
+        "id": "5",
         "style": "Rock",
         "title": "like you",
         "Artist": "Ambondrona",
@@ -54,7 +54,7 @@
         "favorite": false
     },
     {
-        "id": 6,
+        "id": "6",
         "style": "folk",
         "title": "Jesusalem",
         "Artist": "Master KG",

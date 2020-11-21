@@ -14,8 +14,7 @@ function AddSong() {
                 <div className="form_type"><input placeholder="title" /></div>
                 <div className="form_type"><input placeholder="Artist" /></div>
                 <div className="form_type" ><input placeholder="Price" /></div>
-                <div className="form_type" ><input placeholder="Price" /></div>
-                <select name="choice" className="form_type">
+                <select name="choice" className="form_type_select">
                     <option value="choices">Choices</option>
                     <option value="salegy">Salegy</option>
                     <option value="reggae">Reggae</option>
@@ -28,8 +27,8 @@ function AddSong() {
                     rows="5" cols="33">
                 </textarea>
                 </div>
-                <div className="form_type">
-                    <button>Add</button>
+                <div className="form_type_button">
+                    <button type="button" className="button">Add</button>
                 </div>
             </form>
         </div>

@@ -2,10 +2,9 @@
     display: flex;
     font-family: Montserrat;
     font-weight: 400;
-    font-size: 36px;
+    font-size: 20px;
     line-height: 43.88px;
     
-
 
 }
 
@@ -29,10 +28,74 @@
 
 .form_type {
     margin: 1rem;
+
+}
+
+input {
+    background-color: teal;
+    color: white;
+}
+input::placeholder {
+    color: white;
+}
+
+textarea {
+     background-color: teal;
+     color: white;
+}
+
+.form_type_button {
+    margin: 1rem;
+
+}
+
+.form_type_select {
+    background-color: teal;
+    margin: 1rem;
+    color: white;
+}
+
+.button {
+    background-color: yellow;
+    padding: 1rem;
+    outline: none;
+    border: none;
 }
 
 .link-list {
   text-decoration: none;
 }
+
+.style {
+
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 78.02px;
+    margin: 1.5rem
+}
+
+select {
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+h1 {
+   font-family: Montserrat;
+   font-weight: 400;
+   font-size: 50px;
+   
+}
+
+span {
+    margin-top: 1.5rem;
+}
+
+.style_link {
+    text-decoration: none;
+    color: rgb(146, 145, 146);
+}
+
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
